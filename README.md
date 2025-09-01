@@ -1,33 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TipMe - Frontend
+
+This is the frontend for the TipMe decentralized application (DApp), a personal tipping website built with Next.js. It provides a user-friendly interface for interacting with the `TipMe` smart contract on the blockchain.
+
+![TipMe Homepage](public/home.png)
+
+## Features
+
+-   **Connect Wallet**: Users can connect their Ethereum wallets using RainbowKit.
+-   **View Funding Goal**: Displays the current funding goal and progress.
+-   **Send Tips**: A simple form to send tips to the contract owner, along with a name and a message.
+-   **Responsive Design**: A clean and modern interface that works on all devices.
+
+## Technology Stack
+
+-   **Framework**: [Next.js](https://nextjs.org/) (v15.5.2)
+-   **Styling**: [Tailwind CSS](https://tailwindcss.com/) (v4)
+-   **UI Components**: [Shadcn UI](https://ui.shadcn.com/) with the [Neo-Brutalism](https://neobrutalism.dev/) theme.
+-   **Blockchain Interaction**:
+    -   [wagmi](https://wagmi.sh/) (v2.16.9): React Hooks for Ethereum.
+    -   [viem](https://viem.sh/) (v2.x): A TypeScript Interface for Ethereum.
+    -   [RainbowKit](https://www.rainbowkit.com/) (v2.2.8): A React library for wallet connections.
+-   **Package Manager**: [Bun](https://bun.sh/)
 
 ## Getting Started
 
-First, run the development server:
+Follow these instructions to get a copy of the project up and running on your local machine.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Prerequisites
+
+-   [Node.js](https://nodejs.org/)
+-   [Bun](https://bun.sh/)
+
+### Installation & Setup
+
+1.  **Clone the repository**.
+
+2.  **Install dependencies**:
+
+    ```bash
+    bun install
+    ```
+
+3.  **Set up environment variables**:
+
+    Create a `.env.local` file in the `frontend` directory by copying the `.env.example` file.
+
+    ```bash
+    cp .env.example .env.local
+    ```
+
+    You will need to provide values for the following variables:
+
+    -   `NEXT_PUBLIC_RAINBOWKIT_PROJECT_ID`: Your project ID from [WalletConnect Cloud](https://cloud.walletconnect.com/).
+    -   `NEXT_PUBLIC_ALCHEMY_RPC`: Your RPC URL from a provider like [Alchemy](https://www.alchemy.com/).
+
+4.  **Run the development server**:
+    ```bash
+    bun run dev
+    ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Smart Contract
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This frontend is designed to interact with the `TipMe` smart contract. The source code for the smart contract can be found in its own repository:
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+-   **GitHub Repository**: [https://github.com/MastayY/tipme-smart-contract.git](https://github.com/MastayY/tipme-smart-contract.git)
 
 ## Deploy on Vercel
 
