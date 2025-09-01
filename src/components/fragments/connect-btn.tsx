@@ -3,6 +3,7 @@
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { AlertCircle, Wallet } from 'lucide-react';
 import { Button } from '../ui/button';
+import Image from 'next/image';
 
 const RainbowConnectBtn = () => {
   return (
@@ -68,10 +69,11 @@ const RainbowConnectBtn = () => {
                         }}
                       >
                         {chain.iconUrl && (
-                          <img
+                          <Image
                             alt={chain.name ?? 'Chain icon'}
                             src={chain.iconUrl}
-                            style={{ width: 12, height: 12 }}
+                            width={12}
+                            height={12}
                           />
                         )}
                       </div>

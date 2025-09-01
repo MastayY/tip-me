@@ -53,7 +53,6 @@ const formSchema = z.object({
 const TipForm = ({ isConnected }: { isConnected: boolean }) => {
     const {
         data: hash,
-        error: isTxError,
         isPending: isTxPending,
         writeContract,
     } = useWriteContract();

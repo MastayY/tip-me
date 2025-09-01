@@ -7,46 +7,36 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-import {
-    useAccount,
-    useReadContract,
-} from "wagmi";
+import { useAccount, useReadContract } from "wagmi";
 import { Github, Instagram, Linkedin, LoaderIcon } from "lucide-react";
 import Image from "next/image";
 import TipForm from "@/components/fragments/tip-form";
 import GoalCard from "@/components/fragments/goal-card";
-import { formatEther, Log } from "viem";
-import { contractData } from "../../contract/contract";
+import { formatEther } from "viem";
+import { contractData } from "../../../contract/contract";
 import TipMarquee from "@/components/fragments/tip-marquee";
 
 const Homepage = () => {
-    const { isConnected, address: accountAddress } = useAccount();
+    const { isConnected } = useAccount();
 
     // goal value
-    const {
-        data: currentGoal,
-        isPending: isCurrentGoalPending,
-        error: currentGoalError,
-    } = useReadContract({
-        address: contractData.address as `0x${string}`,
-        abi: contractData.abi,
-        functionName: "currentGoal",
-    });
+    const { data: currentGoal, isPending: isCurrentGoalPending } =
+        useReadContract({
+            address: contractData.address as `0x${string}`,
+            abi: contractData.abi,
+            functionName: "currentGoal",
+        });
 
-    const {
-        data: fundingGoalAmount,
-        isPending: isFundingGoalAmountPending,
-        error: fundingGoalAmountError,
-    } = useReadContract({
-        address: contractData.address as `0x${string}`,
-        abi: contractData.abi,
-        functionName: "fundingGoalAmount",
-    });
+    const { data: fundingGoalAmount, isPending: isFundingGoalAmountPending } =
+        useReadContract({
+            address: contractData.address as `0x${string}`,
+            abi: contractData.abi,
+            functionName: "fundingGoalAmount",
+        });
 
     const {
         data: totalRaisedForCurrentGoal,
         isPending: isTotalRaisedForCurrentGoalPending,
-        error: totalRaisedForCurrentGoalError,
     } = useReadContract({
         address: contractData.address as `0x${string}`,
         abi: contractData.abi,
@@ -54,7 +44,9 @@ const Homepage = () => {
     });
 
     const progress =
-        ((totalRaisedForCurrentGoal ? parseFloat(totalRaisedForCurrentGoal as string) : 0) /
+        ((totalRaisedForCurrentGoal
+            ? parseFloat(totalRaisedForCurrentGoal as string)
+            : 0) /
             (fundingGoalAmount ? parseFloat(fundingGoalAmount as string) : 1)) *
         100;
 
@@ -94,7 +86,9 @@ const Homepage = () => {
                             className="rounded-full border-2 border-border shadow-shadow p-1"
                         />
                         <div>
-                            <h2 className="text-2xl font-bold">Nasywan Damar</h2>
+                            <h2 className="text-2xl font-bold">
+                                Nasywan Damar
+                            </h2>
                             <p className="text-sm">
                                 Frontend Developer | Undergraduate Student | IT
                                 Enthusiast
