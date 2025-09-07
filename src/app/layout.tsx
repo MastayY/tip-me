@@ -29,7 +29,7 @@ export default function RootLayout({
             >
                 <Web3Provider>
                     <Navbar />
-                    <main className="py-8 px-6 h-dvh">{children}</main>
+                    <main className="py-8 px-6 min-h-dvh">{children}</main>
                     <Toaster />
                     <Footer />
                 </Web3Provider>
